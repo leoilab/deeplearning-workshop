@@ -15,7 +15,9 @@ Workshop on using deep learning in health tech.
 # Installing dependencies
 Install dependencies with:
 
-	$ pip3 install -r requirements.txt
+```bash
+pip3 install -r requirements.txt
+```
 
 You can do it in a virtual environment.
 
@@ -29,7 +31,7 @@ The cheapest option is the `p2.xlarge` machine, $1 / hour.
 
 Once running create a ssh tunnel to the instance and start your notebook:
 
-```
+```bash
 ssh -L 8000:localhost:8888 <url_to_aws_instance>
 source activate tensorflow_p36
 jupyter notebook
@@ -38,5 +40,9 @@ jupyter notebook
 Now a notebook should be available on `localhost:8000`.
 
 ## Data sets
+
 * Cats vs. dogs: Download through [kaggle](https://www.kaggle.com/c/dogs-vs-cats/data) (profile required)
-* ISIC melanoma classification: Download using [this repo](https://github.com/GalAvineri/ISIC-Archive-Downloader)
+* ISIC melanoma classification:
+	- Download using [this repo](https://github.com/GalAvineri/ISIC-Archive-Downloader)
+	- Then run `python download_archive.py --images-dir <path_to_repo>/data/isic/images --descs-dir <path_to_repo>/data/isic/descriptions`
+	- Split them to validation and training dataset with: `python sort_isic_images.py`
