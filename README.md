@@ -8,7 +8,7 @@ Workshop on using deep learning in health tech.
 * Keras 2.2.2
 * tensorflow 1.9
 * See below for how to install python requirements
-* It's really nice to have a nvidia gpu, otherwise you'll have some waiting to do.
+* It's really nice to have a NVIDIA GPU, otherwise you'll have some waiting to do.
 
 ## Getting started
 

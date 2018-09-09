@@ -2,12 +2,12 @@ import json
 from pathlib import Path
 import tqdm
 
-descrs = Path('data/isic/descriptions/')
+descriptions = Path('data/isic/descriptions/')
 images_path = Path('data/isic/images/')
 images_out_train = Path('data/isic/train')
 images_out_valid = Path('data/isic/valid')
 
-for file in tqdm.tqdm(descrs.iterdir()):
+for file in tqdm.tqdm(descriptions.iterdir()):
     description = json.loads(file.read_text())
     image_file = images_path / (file.stem + '.jpg')
     if 'meta' not in description:
@@ -19,6 +19,7 @@ for file in tqdm.tqdm(descrs.iterdir()):
     if description['meta']['clinical']['benign_malignant'] not in ['benign', 'malignant']:
         continue
 
+    # Split data equally to validation and training.
     if int(description['_id'], 16) % 2 > 0:
         images_out = images_out_valid
     else:
