@@ -1,15 +1,18 @@
 from pathlib import Path
 import shutil
 
-project_base = Path('/home/ubuntu/source/deeplearning-workshop')
-notebook_paths = [
+home_path = Path('/home/ubuntu/')
+
+project_base = home_path / 'source/deeplearning-workshop'
+team_folder_file_paths = [
     project_base / 'Exercise 1 - Cats and dogs.ipynb',
     project_base / 'Exercise 2 - Bodyparts.ipynb',
+    home_path / 'instructor_notebook' / 'bodypart_predictor.h5'
 ]
 
 
 def set_folder_content(team_path):
-    for p in notebook_paths:
+    for p in team_folder_file_paths:
         (team_path / p.name).parent.mkdir(parents=True, exist_ok=True)
         shutil.copy(str(p), str(team_path / p.name))
 
@@ -30,7 +33,7 @@ def create_bodypart_folders(team_path):
 
 
 def main():
-    team_folder_base = Path('/home/ubuntu/dis_jan_2019_notebooks')
+    team_folder_base = home_path / 'dis_jan_2019_notebooks'
     teams = range(14)
     for t in teams:
         team_path = team_folder_base / ("team_%i" % (t + 1))
