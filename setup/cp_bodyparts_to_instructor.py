@@ -22,6 +22,9 @@ def copy_bodypart_folders(team_path):
         for file in body_part_folder.iterdir():
             if file.is_file():
                 # Add some random uuid to output to make sure filenames do not clash
+                if 'ilabbers' in file.name:
+                    continue
+
                 shutil.copy(file, instructor_folder / body_part / (str(uuid1()) + file.name))
 
 
