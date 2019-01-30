@@ -7,7 +7,7 @@ home_path = Path('/home/ubuntu/')
 
 project_base = home_path / 'source/deeplearning-workshop'
 team_folder_file_paths = [
-    project_base / 'Exercise 1 - Cats and dogs.ipynb',
+    project_base / 'Exercise 1 - MNIST.ipynb',
     project_base / 'Exercise 2 - Bodyparts.ipynb',
     home_path / 'instructor_notebook' / 'bodypart_predictor.h5'
 ]
