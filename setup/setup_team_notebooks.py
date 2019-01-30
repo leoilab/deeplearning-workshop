@@ -30,8 +30,9 @@ def create_bodypart_folders(team_path):
     for bp in bodyparts:
         (team_path / 'bodyparts_data' / bp).mkdir(parents=True, exist_ok=True)
 
-    hand_src = project_base / 'bodyparts_data' / 'hand' / 'fingers.jpg'
-    shutil.copy(hand_src, team_path / 'bodyparts_data' / 'hand' / hand_src.name)
+    hand_src = project_base / 'bodyparts_data' / 'hand'
+    for hand_path in hand_src.iterdir():
+        shutil.copy(hand_src / hand_path, team_path / 'bodyparts_data' / 'hand' / hand_path.name)
 
 
 def main():
